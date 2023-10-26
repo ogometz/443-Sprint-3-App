@@ -1,9 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
-        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22C65" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Chord" representedClassName="Chord" syncable="YES" codeGenerationType="class">
+        <attribute name="audio_file" optional="YES" attributeType="String"/>
+        <attribute name="chord_id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="chord_name" optional="YES" attributeType="String"/>
+        <attribute name="diagram_image" optional="YES" attributeType="String"/>
+        <attribute name="difficulty" optional="YES" attributeType="String"/>
+        <attribute name="quality" optional="YES" attributeType="String"/>
     </entity>
-    <elements>
-        <element name="Item" positionX="-63" positionY="-18" width="128" height="44"/>
-    </elements>
+    <entity name="Song" representedClassName="Song" syncable="YES" codeGenerationType="class">
+        <attribute name="album" optional="YES" attributeType="String"/>
+        <attribute name="artist" optional="YES" attributeType="String"/>
+        <attribute name="audio_file" optional="YES" attributeType="String"/>
+        <attribute name="song_id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="song_chord_instance" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SongChordInstance" inverseName="song" inverseEntity="SongChordInstance"/>
+    </entity>
+    <entity name="SongChordInstance" representedClassName="SongChordInstance" syncable="YES" codeGenerationType="class">
+        <attribute name="chord_name" optional="YES" attributeType="String"/>
+        <attribute name="end_time" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="song_chord_instance_id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="start_time" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="song" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Song" inverseName="song_chord_instance" inverseEntity="Song"/>
+    </entity>
 </model>

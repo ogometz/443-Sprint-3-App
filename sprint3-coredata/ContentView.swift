@@ -1,9 +1,4 @@
-//
-//  ContentView.swift
-//  sprint3-coredata
-//
-//  Created by Owen Gometz on 10/25/23.
-//
+// ContentView.swift
 
 import SwiftUI
 import CoreData
@@ -12,77 +7,53 @@ struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
 
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
+        entity: Chord.entity(),
+        sortDescriptors: [NSSortDescriptor(key: "chord_name", ascending: true)],
         animation: .default)
-    private var items: FetchedResults<Item>
+    private var chords: FetchedResults<Chord>
+
+    @FetchRequest(
+        entity: Song.entity(),
+        sortDescriptors: [NSSortDescriptor(key: "title", ascending: true)],
+        animation: .default)
+    private var songs: FetchedResults<Song>
 
     var body: some View {
-        NavigationView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-                    } label: {
-                        Text(item.timestamp!, formatter: itemFormatter)
+        TabView {
+            // Chords Tab
+            NavigationView {
+                List(chords) { chord in
+                    NavigationLink(destination: ChordDetailView(chord: chord)) {
+                        VStack(alignment: .leading) {
+                            Text(chord.chord_name ?? "")
+                            Text(chord.quality ?? "").font(.subheadline).foregroundColor(.gray)
+                            Text(chord.difficulty ?? "").font(.subheadline).foregroundColor(.blue)
+                        }
                     }
                 }
-                .onDelete(perform: deleteItems)
+                .navigationTitle("Chords")
             }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
+            .tabItem {
+                Label("Chords", systemImage: "music.note.list")
+            }
+            
+            // Songs Tab
+            NavigationView {
+                List(songs) { song in
+                    NavigationLink(destination: SongDetailView(song: song)) {
+                        VStack(alignment: .leading) {
+                            Text(song.title ?? "")
+                            Text(song.album ?? "").font(.subheadline).foregroundColor(.gray)
+                            Text(song.artist ?? "").font(.subheadline).foregroundColor(.blue)
+                        }
+                        .padding()
                     }
                 }
+                .navigationTitle("Songs")
             }
-            Text("Select an item")
-        }
-    }
-
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+            .tabItem {
+                Label("Songs", systemImage: "music.note")
             }
         }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            offsets.map { items[$0] }.forEach(viewContext.delete)
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
-    }
-}
-
-private let itemFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    formatter.timeStyle = .medium
-    return formatter
-}()
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

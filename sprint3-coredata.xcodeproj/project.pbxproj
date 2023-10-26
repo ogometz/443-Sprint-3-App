@@ -12,7 +12,14 @@
 		3523DA452AE99BB000871275 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3523DA442AE99BB000871275 /* Assets.xcassets */; };
 		3523DA482AE99BB000871275 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3523DA472AE99BB000871275 /* Preview Assets.xcassets */; };
 		3523DA4A2AE99BB000871275 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3523DA492AE99BB000871275 /* Persistence.swift */; };
-		3523DA4D2AE99BB000871275 /* sprint3_coredata.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3523DA4B2AE99BB000871275 /* sprint3_coredata.xcdatamodeld */; };
+		3523DA542AE99D7300871275 /* ChordDataInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3523DA532AE99D7300871275 /* ChordDataInitializer.swift */; };
+		3523DA552AE9A6C400871275 /* sprint3_coredata.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3523DA4B2AE99BB000871275 /* sprint3_coredata.xcdatamodeld */; };
+		3523DA7A2AE9C19000871275 /* SongDataInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3523DA792AE9C19000871275 /* SongDataInitializer.swift */; };
+		3523DA7D2AE9C51700871275 /* Chord-Annotations-master copy in Resources */ = {isa = PBXBuildFile; fileRef = 3523DA7C2AE9C51600871275 /* Chord-Annotations-master copy */; };
+		3523DAA32AE9F10100871275 /* Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3523DAA22AE9F10100871275 /* Structs.swift */; };
+		3523DAA52AEAAD6C00871275 /* SongDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3523DAA42AEAAD6C00871275 /* SongDetailView.swift */; };
+		3523DAA72AEAADDE00871275 /* ChordDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3523DAA62AEAADDE00871275 /* ChordDetailView.swift */; };
+		3523DAA92AEAB47500871275 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3523DAA82AEAB47500871275 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +30,13 @@
 		3523DA472AE99BB000871275 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3523DA492AE99BB000871275 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		3523DA4C2AE99BB000871275 /* sprint3_coredata.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = sprint3_coredata.xcdatamodel; sourceTree = "<group>"; };
+		3523DA532AE99D7300871275 /* ChordDataInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordDataInitializer.swift; sourceTree = "<group>"; };
+		3523DA792AE9C19000871275 /* SongDataInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongDataInitializer.swift; sourceTree = "<group>"; };
+		3523DA7C2AE9C51600871275 /* Chord-Annotations-master copy */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Chord-Annotations-master copy"; sourceTree = "<group>"; };
+		3523DAA22AE9F10100871275 /* Structs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structs.swift; sourceTree = "<group>"; };
+		3523DAA42AEAAD6C00871275 /* SongDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongDetailView.swift; sourceTree = "<group>"; };
+		3523DAA62AEAADDE00871275 /* ChordDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordDetailView.swift; sourceTree = "<group>"; };
+		3523DAA82AEAB47500871275 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,12 +69,19 @@
 		3523DA3F2AE99BAE00871275 /* sprint3-coredata */ = {
 			isa = PBXGroup;
 			children = (
+				3523DA7C2AE9C51600871275 /* Chord-Annotations-master copy */,
 				3523DA402AE99BAE00871275 /* sprint3_coredataApp.swift */,
 				3523DA422AE99BAE00871275 /* ContentView.swift */,
 				3523DA442AE99BB000871275 /* Assets.xcassets */,
 				3523DA492AE99BB000871275 /* Persistence.swift */,
 				3523DA4B2AE99BB000871275 /* sprint3_coredata.xcdatamodeld */,
 				3523DA462AE99BB000871275 /* Preview Content */,
+				3523DA532AE99D7300871275 /* ChordDataInitializer.swift */,
+				3523DA792AE9C19000871275 /* SongDataInitializer.swift */,
+				3523DAA22AE9F10100871275 /* Structs.swift */,
+				3523DAA42AEAAD6C00871275 /* SongDetailView.swift */,
+				3523DAA62AEAADDE00871275 /* ChordDetailView.swift */,
+				3523DAA82AEAB47500871275 /* AppDelegate.swift */,
 			);
 			path = "sprint3-coredata";
 			sourceTree = "<group>";
@@ -133,6 +154,7 @@
 			files = (
 				3523DA482AE99BB000871275 /* Preview Assets.xcassets in Resources */,
 				3523DA452AE99BB000871275 /* Assets.xcassets in Resources */,
+				3523DA7D2AE9C51700871275 /* Chord-Annotations-master copy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,9 +165,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3523DA552AE9A6C400871275 /* sprint3_coredata.xcdatamodeld in Sources */,
+				3523DA7A2AE9C19000871275 /* SongDataInitializer.swift in Sources */,
 				3523DA4A2AE99BB000871275 /* Persistence.swift in Sources */,
+				3523DAA32AE9F10100871275 /* Structs.swift in Sources */,
+				3523DAA52AEAAD6C00871275 /* SongDetailView.swift in Sources */,
+				3523DAA72AEAADDE00871275 /* ChordDetailView.swift in Sources */,
+				3523DA542AE99D7300871275 /* ChordDataInitializer.swift in Sources */,
 				3523DA432AE99BAE00871275 /* ContentView.swift in Sources */,
-				3523DA4D2AE99BB000871275 /* sprint3_coredata.xcdatamodeld in Sources */,
+				3523DAA92AEAB47500871275 /* AppDelegate.swift in Sources */,
 				3523DA412AE99BAE00871275 /* sprint3_coredataApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

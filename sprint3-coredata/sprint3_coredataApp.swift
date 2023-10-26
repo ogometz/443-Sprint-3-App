@@ -10,7 +10,13 @@ import SwiftUI
 @main
 struct sprint3_coredataApp: App {
     let persistenceController = PersistenceController.shared
+    
+//    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
+    init() {
+            persistenceController.importInitialDataIfNeeded()
+        }
+  
     var body: some Scene {
         WindowGroup {
             ContentView()
